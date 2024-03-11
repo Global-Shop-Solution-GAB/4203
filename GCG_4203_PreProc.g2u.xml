@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>126</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>126</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>126</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.Preflight.Start</string>
+        <string />
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>'establish connection to the database</string>
+        <string>Function.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,1200)</string>
+        <string />
+        <string>'print custom report</string>
+        <string>f.Intrinsic.Control.CallSub(print)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4203_PreProc.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Unload.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Unload_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>'close connection to the database and end the program</string>
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Unload_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4203_PreProc.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Unload.End</string>
+        <string />
+        <string>Program.Sub.Print.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Print_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.sinvoice.Declare(string)</string>
+        <string>v.Local.ssql.Declare(String)</string>
+        <string>v.Local.irunID.Declare(long)</string>
+        <string>v.Local.ilogid.Declare(long)</string>
+        <string>v.Local.sparams.Declare(string)</string>
+        <string>v.Local.svalues.Declare(String)</string>
+        <string>v.Local.i.Declare(long)</string>
+        <string>v.Local.sterminal.Declare(string)</string>
+        <string>v.Local.iret.Declare(long)</string>
+        <string>v.Local.sline.Declare(string)</string>
+        <string>v.Local.sorder.Declare(String)</string>
+        <string>v.Local.irptID.Declare(long)</string>
+        <string>v.Local.ddate.Declare(date)</string>
+        <string>v.Local.srptid.Declare(string)</string>
+        <string>v.Local.sdate.Declare(string)</string>
+        <string>v.Local.sfilename.Declare(String)</string>
+        <string>v.Local.sfilepath.Declare(String)</string>
+        <string>v.Local.slogo.Declare(String)</string>
+        <string>v.Local.svals.Declare(String)</string>
+        <string>V.Local.ddate.Set(V.Ambient.Date)</string>
+        <string>v.Local.ireturn.Declare(long)</string>
+        <string />
+        <string>F.Intrinsic.String.ConvertToString(V.Local.ddate,V.Local.sdate)</string>
+        <string />
+        <string>'format the date</string>
+        <string>F.Intrinsic.String.Format(V.Local.sdate,"MMDDYYY",V.local.sdate)</string>
+        <string />
+        <string>'set the invoice number</string>
+        <string>v.Local.sinvoice.Set(v.Passed.009000)</string>
+        <string>'v.Local.sinvoice.Set("203153")</string>
+        <string />
+        <string>'combine invoice and date for file name</string>
+        <string>f.Intrinsic.String.Build("{0}{1}",v.Local.sinvoice.Trim,v.Local.sdate,v.Local.sfilename)</string>
+        <string>'f.Intrinsic.String.Build("{0}\{1}\{2}",v.Caller.FilesDir,"Ship Sched Invoices",v.Local.sfilename,v.Local.sfilepath)</string>
+        <string>f.Intrinsic.String.Build("{0}\{1}",v.Caller.FilesDir,v.Local.sfilename,v.Local.sfilepath)</string>
+        <string />
+        <string>v.Local.stest.Declare(string)</string>
+        <string>f.Intrinsic.String.Build("{0}\Custom\OE_4203_INVOICE.RPT",v.Caller.BusintDir,v.Local.stest)</string>
+        <string>f.Global.BI.GetIDFromName(v.Local.stest,v.Local.irptID)</string>
+        <string />
+        <string>F.global.BI.GetRunID(V.Local.irunID)</string>
+        <string />
+        <string>v.Local.irptID.Set(100119)</string>
+        <string />
+        <string>'''Request BI Log ID:</string>
+        <string>F.Global.BI.StartLogging(V.LOCAL.IRUNID,v.local.irptid,"0","",v.local.ilogid)</string>
+        <string>f.Global.BI.StopLogging(v.Local.ilogid)</string>
+        <string />
+        <string>'F.Global.BI.RunReportPreProcesssor(v.local.irunid,v.local.ilogid,v.local.sparams,v.local.svals,"",4,True,"",-1,"",-1,v.local.sfilepath,v.local.irpt)</string>
+        <string />
+        <string>V.Local.sParams.Set("Terminal*!*ReportID*!*TRACK*!*PROGRAM*!*IVCTYPE*!*PRTSHIP*!*PRTORD*!*Logo")</string>
+        <string>f.Intrinsic.String.Build("{0}{1}{2}{1}{3}{1}{3}{1}{3}{1}{3}{1}{3}{1}{4}",V.Caller.Terminal,"*!*",v.Local.irptID,"",v.Local.slogo,v.Local.svals)</string>
+        <string />
+        <string>'F.Global.BI.RunReportPreProcessor(V.global.lBIrunID,V.global.lLogid,V.Local.sParams,V.Local.sValues,"",-1,True,"",-1,"",-1,"","",V.Local.iRet)</string>
+        <string>F.Global.BI.RunReportPreProcessor(v.local.irunid,v.Local.ilogid,v.local.sparams,v.local.svals,"",16,True,"",-1,"",-1,"",v.Local.sfilepath,v.local.ireturn)</string>
+        <string>'F.Global.BI.SaveReport(V.Local.irptID,1,V.Local.sParams,V.Local.sVals,V.Local.sfilepath)</string>
+        <string>'call the unload subroutine</string>
+        <string>f.Intrinsic.Control.CallSub(unload)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Print_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4203_PreProc.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Print.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$$}$WAW$}$1/23/2017 10:48:58 AM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>71</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>2</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>4</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>26</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>28</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>48</Y>
+        </EndPoint>
+        <Text>Program.Sub.Unload</Text>
+        <DisplayText>Program.Sub.Unload</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>50</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>124</Y>
+        </EndPoint>
+        <Text>Program.Sub.Print</Text>
+        <DisplayText>Program.Sub.Print</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>126</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>128</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
