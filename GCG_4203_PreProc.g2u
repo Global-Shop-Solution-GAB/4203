@@ -1,0 +1,129 @@
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'establish connection to the database
+Function.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,1200)
+
+'print custom report
+f.Intrinsic.Control.CallSub(print)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4203_PreProc.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'close connection to the database and end the program
+F.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4203_PreProc.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Unload.End
+
+Program.Sub.Print.Start
+F.Intrinsic.Control.SetErrorHandler("Print_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sinvoice.Declare(string)
+v.Local.ssql.Declare(String)
+v.Local.irunID.Declare(long)
+v.Local.ilogid.Declare(long)
+v.Local.sparams.Declare(string)
+v.Local.svalues.Declare(String)
+v.Local.i.Declare(long)
+v.Local.sterminal.Declare(string)
+v.Local.iret.Declare(long)
+v.Local.sline.Declare(string)
+v.Local.sorder.Declare(String)
+v.Local.irptID.Declare(long)
+v.Local.ddate.Declare(date)
+v.Local.srptid.Declare(string)
+v.Local.sdate.Declare(string)
+v.Local.sfilename.Declare(String)
+v.Local.sfilepath.Declare(String)
+v.Local.slogo.Declare(String)
+v.Local.svals.Declare(String)
+V.Local.ddate.Set(V.Ambient.Date)
+v.Local.ireturn.Declare(long)
+
+F.Intrinsic.String.ConvertToString(V.Local.ddate,V.Local.sdate)
+
+'format the date
+F.Intrinsic.String.Format(V.Local.sdate,"MMDDYYY",V.local.sdate)
+
+'set the invoice number
+v.Local.sinvoice.Set(v.Passed.009000)
+'v.Local.sinvoice.Set("203153")
+
+'combine invoice and date for file name
+f.Intrinsic.String.Build("{0}{1}",v.Local.sinvoice.Trim,v.Local.sdate,v.Local.sfilename)
+'f.Intrinsic.String.Build("{0}\{1}\{2}",v.Caller.FilesDir,"Ship Sched Invoices",v.Local.sfilename,v.Local.sfilepath)
+f.Intrinsic.String.Build("{0}\{1}",v.Caller.FilesDir,v.Local.sfilename,v.Local.sfilepath)
+
+v.Local.stest.Declare(string)
+f.Intrinsic.String.Build("{0}\Custom\OE_4203_INVOICE.RPT",v.Caller.BusintDir,v.Local.stest)
+f.Global.BI.GetIDFromName(v.Local.stest,v.Local.irptID)
+
+F.global.BI.GetRunID(V.Local.irunID)
+
+v.Local.irptID.Set(100119)
+
+'''Request BI Log ID:
+F.Global.BI.StartLogging(V.LOCAL.IRUNID,v.local.irptid,"0","",v.local.ilogid)
+f.Global.BI.StopLogging(v.Local.ilogid)
+
+'F.Global.BI.RunReportPreProcesssor(v.local.irunid,v.local.ilogid,v.local.sparams,v.local.svals,"",4,True,"",-1,"",-1,v.local.sfilepath,v.local.irpt)
+
+V.Local.sParams.Set("Terminal*!*ReportID*!*TRACK*!*PROGRAM*!*IVCTYPE*!*PRTSHIP*!*PRTORD*!*Logo")
+f.Intrinsic.String.Build("{0}{1}{2}{1}{3}{1}{3}{1}{3}{1}{3}{1}{3}{1}{4}",V.Caller.Terminal,"*!*",v.Local.irptID,"",v.Local.slogo,v.Local.svals)
+
+'F.Global.BI.RunReportPreProcessor(V.global.lBIrunID,V.global.lLogid,V.Local.sParams,V.Local.sValues,"",-1,True,"",-1,"",-1,"","",V.Local.iRet)
+F.Global.BI.RunReportPreProcessor(v.local.irunid,v.Local.ilogid,v.local.sparams,v.local.svals,"",16,True,"",-1,"",-1,"",v.Local.sfilepath,v.local.ireturn)
+'F.Global.BI.SaveReport(V.Local.irptID,1,V.Local.sParams,V.Local.sVals,V.Local.sfilepath)
+'call the unload subroutine
+f.Intrinsic.Control.CallSub(unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Print_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4203_PreProc.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Print.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$WAW$}$1/23/2017 10:48:58 AM$}$False
+Program.Sub.Comments.End
